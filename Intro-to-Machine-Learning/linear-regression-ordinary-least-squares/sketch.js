@@ -14,6 +14,28 @@ function setup() {
 	background(51);
 }
 
+function linearRegression(){
+	var xsum = 0;
+	var ysum = 0;
+	for (var i = 0; i < data.length; i++){
+		xsum += data[i].x;
+		ysum += data[i].y;
+	}
+	var xmean = xsum / data.length;
+	var ymean = ysum / data.length;
+
+	var numerator = 0;
+	var denominator = 0;
+	for (var i = 0; i < data.length; i++){
+		var x = data[i].x;
+		var y = data[i].y;
+		numerator += (x - xmean) * (y - ymean);
+		denominator += (x - xmean) * (x - xmean);
+	}
+	m = numerator / denominator;
+	b = ymean - m * xmean;
+}
+
 function mousePressed(){
 	var x = map(mouseX, 0, width, 0, 1);
 	var y = map(mouseY, 0, height, 1, 0);
@@ -48,5 +70,8 @@ function draw() {
 		ellipse(x, y, 8, 8);
 	}
 
-	drawLine();
+	if (data.length > 1){
+		linearRegression();
+		drawLine();
+	}
 }
