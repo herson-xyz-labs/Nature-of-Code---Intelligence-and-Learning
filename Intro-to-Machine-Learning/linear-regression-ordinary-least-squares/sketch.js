@@ -1,4 +1,13 @@
+/*
+- Follow-along of Dan Shiffman's Linear Regression with Ordinary Least Squares, 
+	- https://www.youtube.com/watch?v=_cXuvTQl090
+- Part of the Machine Learning series for the Intelligence and Learning Course, 
+	- https://github.com/nature-of-code/NOC-S17-2-Intelligence-Learning/tree/master
+*/
+
 var data = [];
+var m = 1;
+var b = 0;
 
 function setup() {
 	createCanvas(windowWidth, windowHeight);
@@ -13,6 +22,21 @@ function mousePressed(){
 	data.push(point);
 }
 
+function drawLine(){
+	var x1 = 0;
+	var y1 = m * x1 + b;
+	var x2 = 1;
+	var y2 = m * x2 + b;
+
+	x1 = map(x1, 0, 1, 0, width);
+	y1 = map(y1, 0, 1, height, 0);
+	x2 = map(x2, 0, 1, 0, width);
+	y2 = map(y2, 0, 1, height, 0);
+
+	stroke(255, 0, 255);
+	line(x1, y1, x2, y2);
+}
+
 function draw() {
 	background(51);
 
@@ -23,4 +47,6 @@ function draw() {
 		stroke(255);
 		ellipse(x, y, 8, 8);
 	}
+
+	drawLine();
 }
