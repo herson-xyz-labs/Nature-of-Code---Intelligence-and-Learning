@@ -2,4 +2,4 @@
  
 ### Linear Regression using Ordinary Least Squares
 
-![](/Intro-to-Machine-Learning/linear-regression-ordinary-least-squares/documentation/cover.png)
+![](/Intro-to-Machine-Learning/linear-regression-with-gradient-descent/documentation/cover.png)

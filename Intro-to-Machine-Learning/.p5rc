@@ -1,6 +1,7 @@
 {
   "name": "Intro-to-Machine-Learning",
   "projects": [
-    "linear-regression-ordinary-least-squares"
+    "linear-regression-ordinary-least-squares",
+    "linear-regression-with-gradient-descent"
   ]
 }
