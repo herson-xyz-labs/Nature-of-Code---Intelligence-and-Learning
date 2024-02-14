@@ -14,7 +14,20 @@ function setup() {
 	background(51);
 }
 
-function linearRegression(){
+function gradientDescent(){
+
+	var learning_rate = 0.01;
+
+	for (var i = 0; i < data.length; i++){
+		var x = data[i].x;
+		var y = data[i].y;
+
+		var guess = m * x + b;
+		var error = y - guess;
+
+		m = m + (error * x) * learning_rate;
+		b = b + (error) * learning_rate;
+	}
 
 }
 
@@ -53,7 +66,7 @@ function draw() {
 	}
 
 	if (data.length > 1){
-		linearRegression();
+		gradientDescent();
 		drawLine();
 	}
 }
